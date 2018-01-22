@@ -23,8 +23,8 @@ public class NotixHook implements IXposedHookZygoteInit {
         String nTitle = n.extras.getString(Notification.EXTRA_TITLE);
         String nText = n.extras.getString(Notification.EXTRA_TEXT);
 
-        XposedBridge.log("  [New notification] from " + nPackageName);
-        XposedBridge.log("     " + nTitle + ": " + nText);
+        XposedBridge.log("   from " + nPackageName);
+        XposedBridge.log("   " + nTitle + ": " + nText);
         // Signal?? https://github.com/WhisperSystems/Signal-Android/blob/e7a9893e94659779680cedcfc3398a664e12abad/src/org/thoughtcrime/securesms/service/MessageRetrievalService.java
 
     }
@@ -43,6 +43,7 @@ public class NotixHook implements IXposedHookZygoteInit {
                 Notification n = (Notification)param.args[2];
                 UserHandle nUserHandle = (UserHandle)param.args[3];
 
+                XposedBridge.log("  [New notification] notify!");
                 filterNotification(n, nContext);
             }
         });
@@ -56,6 +57,7 @@ public class NotixHook implements IXposedHookZygoteInit {
                 int nId = (int)param.args[0];
                 Notification n = (Notification)param.args[1];
 
+                XposedBridge.log("  [New notification] startForeground!");
                 filterNotification(n, nContext);
             }
         });

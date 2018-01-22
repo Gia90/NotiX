@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.dev.g14.myxposedmodule">
+    package="org.dev.g14.notix">
 
     <application
         android:allowBackup="true"
@@ -18,7 +18,7 @@
             android:name="xposedminversion"
             android:value="53" />
         <activity
-            android:name="org.dev.g14.myxposedmodule.SettingsActivity"
+            android:name="org.dev.g14.notix.SettingsActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
