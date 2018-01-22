@@ -1,4 +1,4 @@
-package org.dev.g14.myxposedmodule;
+package org.dev.g14.notix;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
