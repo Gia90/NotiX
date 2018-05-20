@@ -13,7 +13,7 @@
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="My Xposed Module description" />
+            android:value="@string/app_desc" />
         <meta-data
             android:name="xposedminversion"
             android:value="53" />
