@@ -1,12 +1,12 @@
 package org.dev.g14.notix;
 
 import android.app.Notification;
-import android.content.Context;
 import android.service.notification.NotificationListenerService.RankingMap;
 import android.service.notification.StatusBarNotification;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
+import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
@@ -27,6 +27,12 @@ public class NotixHook implements IXposedHookLoadPackage {
         XposedBridge.log("   from " + pkgName);
         XposedBridge.log("   " + nTitle + ": " + nText);
         // Signal?? https://github.com/WhisperSystems/Signal-Android/blob/e7a9893e94659779680cedcfc3398a664e12abad/src/org/thoughtcrime/securesms/service/MessageRetrievalService.java
+
+        XSharedPreferences sharedPrefs = new XSharedPreferences("org.dev.g14.notix");
+        if ((sharedPrefs != null) )
+        {
+            XposedBridge.log("   SHARED PERF! ");
+        }
 
         // TODO: check user defined filters to decide whether to kill this notification or not
         if( pkgName.equals("org.thoughtcrime.securesms") && nText.equals("Background connection enabled") ) {
